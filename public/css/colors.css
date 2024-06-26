@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+MX:wght@100..400&display=swap');
+:root{
+    --white: rgb(255, 255, 255);
+    --red: rgb(213, 1, 1);
+    --green : rgb(0, 128, 0);
+    --blue : rgb(1, 101, 215);
+}
+
+.fotn{
+    font-family: 'Playwrite MX', sans-serif;
+}

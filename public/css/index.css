@@ -1,0 +1,16 @@
+@import url(colors.css);
+
+.option-active{
+    color:blue
+}
+.option-active:hover{    
+    color: rgb(225, 58, 58);
+}
+
+.top-margin-10px{
+    margin-top: 10px;
+}
+
+.aling-right{
+    align-items: right;
+}
