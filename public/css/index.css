@@ -11,6 +11,18 @@
     margin-top: 10px;
 }
 
+.right-padding-10px{
+    padding-right: 85%;
+}
+
 .aling-right{
     align-items: right;
+}
+
+.transition{
+    transition: all 0.3s;
+}
+
+.flex{
+    display: flex;
 }
