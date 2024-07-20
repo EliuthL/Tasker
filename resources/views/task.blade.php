@@ -29,9 +29,14 @@
             @endforeach
         </select>
 
-        <button type="submit" class="btn btn-primary top-margin-10px">Agregar</button>
+        <button type="submit" class="btn btn-primary top-margin-10px" onclick="disablebutton(this)">Agregar</button>
     </form>
 
 
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/close.js') }}"></script>
+<script src=" {{ asset('js/buttom.js') }}"></script>
 @endsection

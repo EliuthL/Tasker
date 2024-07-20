@@ -19,7 +19,7 @@
         @if ($errors->any())
         <div class="alert alert-warning alert-dismissible fade show" role="alert" id="modal">
             <strong>The task has failed!</strong> {{ $errors->first()}}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" id="btn-close" aria-label="Close"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" id="btn-close" aria-label="Close" ></button>
         </div>
         @endif
 
@@ -28,7 +28,7 @@
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="your label name">
         </div>
 
-        <button type="submit" class="btn btn-primary top-margin-10px">Agregar</button>
+        <button type="submit" class="btn btn-primary top-margin-10px" onclick="disablebutton(this)">Agregar</button>
 
 
     </form>
@@ -49,7 +49,7 @@
                     <form action="{{ route('label.destroy',$label, ['id' => 'id']) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                        <button type="submit" class="btn btn-danger" onclick="disablebutton(this)">Eliminar</button>
                     </form>
                 </td>
             </tr>
@@ -64,4 +64,5 @@
 
 @section('scripts')
 <script src="{{ asset('js/close.js') }}"></script>
+<script src=" {{ asset('js/buttom.js') }}"></script>
 @endsection

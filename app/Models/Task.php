@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','name','label_id'];
+    protected $fillable = ['id','name','status','label_id'];
 
     public function label()    
     {

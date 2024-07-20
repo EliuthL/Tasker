@@ -23,7 +23,7 @@ Route::get('/', function () {
         return [
             'id' => $task->id,
             'name' => $task->name,
-            'description' => $task->description,
+            'status' => $task->status,
             'label_name' => $task->label ? $task->label->name : null,  // Asegurar que la tarea tiene una etiqueta
             // Puedes añadir más campos según sea necesario
         ];
@@ -32,5 +32,6 @@ Route::get('/', function () {
     return view('tasklist', compact('tasksArray'));
 })->name('home');
 
+Route::put('/taskslist/{id}', [TaskController::class, 'completeTask'])->name('task.update');
 
 Route::delete('/taskslist/{id}', [TaskController::class, 'destroy'])->name('task.destroy');

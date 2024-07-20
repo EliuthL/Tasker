@@ -19,15 +19,19 @@
                 <tr>
                     <td>{{ $task['name'] }}</td>
                     <td>{{ $task['label_name'] }}</td>
-                    <td>{{ $task['estado'] ?? 'No disponible' }}</td> <!-- Cambia 'estado' si tienes otro campo -->
+                    <td>{{ $task['status']}}</td>
                     <td>
-                        <button type="button" class="btn btn-success">Completar</button>
+                        <form action="{{ route('task.update',$task, ['id' => 'id']) }}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <button type="summit" class="btn btn-success">Completar</button>
+                        </form>
                     </td>
                     <td>
-                        <form action="{{ route('task.destroy',$task, ['id' => 'id']) }}" method="POST">
+                        <form id="deleteTask" action="{{ route('task.destroy',$task, ['id' => 'id']) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-primary">Eliminar</button>
+                            <button type="button" class="btn btn-danger" onclick="openModal()">Eliminar</button>
                         </form>
                     </td>
                 </tr>
@@ -40,5 +44,17 @@
 
 </div>
 
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p class="text-center">¿Estás seguro de que deseas eliminar la tarea?</p>
+        <button class="my-btn-primary" onclick="submitForm()">Sí</button>
+        <button class="top-margin-10px danger-btn" onclick="closeModal()">Cancelar</button>
+    </div>
+</div>
+@endsection
 
+@section('scripts')
+<script src="{{ asset('js/close.js') }}"></script>
+<script src=" {{ asset('js/buttom.js') }}"></script>
 @endsection

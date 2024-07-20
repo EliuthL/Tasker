@@ -26,3 +26,39 @@
 .flex{
     display: flex;
 }
+
+.not-active { 
+    pointer-events: none; 
+    cursor: default;
+}
+
+.text-center{
+    text-align: center;
+}
+.my-btn-primary {
+    background-color: #36a539;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+.danger-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    border-radius: 5px;
+}
+
+.danger-btn:hover, .my-btn-primary:hover, .my-btn-primary:focus, .danger-btn:focus {
+    opacity: 1;
+}

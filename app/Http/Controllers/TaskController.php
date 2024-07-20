@@ -63,4 +63,17 @@ class TaskController extends Controller
 
         return redirect()->route('home') -> with('Success', 'Tarea eliminada con éxito');
     }
+
+    public function completeTask($id){
+        $task = Task::find($id);
+        $task->update([
+            'status' => 'completed'
+        ]);
+
+        return redirect()->route('home') -> with('Success', 'Tarea completada con éxito');
+    }
+
+
 }
+
+
