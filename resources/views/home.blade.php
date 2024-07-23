@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/colors.css') }}">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/modal.css') }}">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <script src="{{ asset('js/modalwindows.js')}}"></script>
     <title>Document</title>
     @yield('head')
@@ -30,6 +30,8 @@
             </div>
         </nav>
     </div>
+
+    
 
     @yield('content')
 

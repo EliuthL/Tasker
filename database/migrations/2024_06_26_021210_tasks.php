@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('status')->default('pending');
+            $table->text('status')->default('Pendiente');
             $table->timestamps();
         });
     }

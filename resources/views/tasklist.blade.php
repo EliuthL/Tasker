@@ -15,11 +15,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($tasksArray as $task)
+                @foreach ($tasks as $task)
                 <tr>
-                    <td>{{ $task['name'] }}</td>
-                    <td>{{ $task['label_name'] }}</td>
-                    <td>{{ $task['status']}}</td>
+                    <td>{{ $task->name }}</td>
+                    <td>{{ $task->label->name ?? 'null' }} </td>
+                    <td>{{ $task->status }}</td>
                     <td>
                         <form action="{{ route('task.update',$task, ['id' => 'id']) }}" method="POST">
                             @csrf
@@ -41,17 +41,17 @@
 
 
     </div>
-
-</div>
-
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p class="text-center">¿Estás seguro de que deseas eliminar la tarea?</p>
-        <button class="my-btn-primary" onclick="submitForm()">Sí</button>
-        <button class="top-margin-10px danger-btn" onclick="closeModal()">Cancelar</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p class="text-center">¿Estás seguro de que deseas eliminar la tarea?</p>
+            <button class="my-btn-primary" onclick="submitForm('deleteTask')">Sí</button>
+            <button class="top-margin-10px danger-btn" onclick="closeModal()">Cancelar</button>
+        </div>
     </div>
 </div>
+
+
 @endsection
 
 @section('scripts')

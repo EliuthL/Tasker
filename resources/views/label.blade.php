@@ -8,7 +8,6 @@
     <form action="{{ route('label.store') }}" method="POST">
         @csrf
 
-
         @if (session('Success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert" id="modal">
             <strong>Task complete</strong> {{ session('Success')}}
@@ -30,7 +29,6 @@
 
         <button type="submit" class="btn btn-primary top-margin-10px" onclick="disablebutton(this)">Agregar</button>
 
-
     </form>
 
     <table class="table top-margin-10px">
@@ -46,20 +44,26 @@
             <tr>
                 <td>{{ $label->name }}</td>
                 <td>
-                    <form action="{{ route('label.destroy',$label, ['id' => 'id']) }}" method="POST">
+                    <form id="deleteLabel" action="{{ route('label.destroy',$label, ['id' => 'id']) }}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger" onclick="disablebutton(this)">Eliminar</button>
+                        <button type="button" class="btn btn-danger" onclick="openModal(this)">Eliminar</button>
                     </form>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-
-
 </div>
 
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p class="text-center">¿Estás seguro de que deseas eliminar la tarea?</p>
+        <button class="my-btn-primary" onclick="submitForm('deleteLabel')">Sí</button>
+        <button class="top-margin-10px danger-btn" onclick="closeModal()">Cancelar</button>
+    </div>
+</div>
 @endsection
 
 @section('scripts')

@@ -40,21 +40,11 @@ class TaskController extends Controller
         return view('task', compact('tasks', 'labels'));
     }
 
-    public function index(){
-        $tasks = Task::with('label')->get(); // Obtener todas las tareas con su etiqueta
+    public function index()
+    {
+        $tasks = Task::with('label')->get();
 
-        $tasksArray = $tasks->map(function ($task) {
-            // Convertir cada tarea a un array y personalizar la salida
-            return [
-                'id' => $task->id,
-                'name' => $task->name,
-                'description' => $task->description,
-                'label_name' => $task->label ? $task->label->name : null,  // Asegurar que la tarea tiene una etiqueta
-                // Puedes añadir más campos según sea necesario
-            ];
-        });
-
-        return view('tasklist', compact('tasksArray'));
+        return view('tasklist', compact('tasks'));
     }
 
     public function destroy($id){

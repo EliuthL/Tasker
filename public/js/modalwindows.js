@@ -8,6 +8,6 @@ function closeModal() {
 }
 
 // Envía el formulario identificado por 'myForm'
-function submitForm() {
-    document.getElementById('deleteTask').submit();
+function submitForm(myForm) {
+    document.getElementById(myForm).submit();
 }

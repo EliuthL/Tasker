@@ -15,22 +15,8 @@ Route::get('/label', [LabelController::class, 'index'])->name('label');
 Route::get('/task', [TaskController::class, 'indexlabel'])->name('task');
 Route::post('/task', [TaskController::class, 'store'])->name('task.store');
 
-Route::get('/', function () {
-    $tasks = Task::with('label')->get(); // Obtener todas las tareas con su etiqueta
 
-    $tasksArray = $tasks->map(function ($task) {
-        // Convertir cada tarea a un array y personalizar la salida
-        return [
-            'id' => $task->id,
-            'name' => $task->name,
-            'status' => $task->status,
-            'label_name' => $task->label ? $task->label->name : null,  // Asegurar que la tarea tiene una etiqueta
-            // Puedes añadir más campos según sea necesario
-        ];
-    });
-
-    return view('tasklist', compact('tasksArray'));
-})->name('home');
+Route::get('/', [TaskController::class, 'index'])->name('home');
 
 Route::put('/taskslist/{id}', [TaskController::class, 'completeTask'])->name('task.update');
 

@@ -14,7 +14,7 @@ return new class extends Migration
         // Create relationship between labels and tasks
         Schema::table('tasks', function (Blueprint $table) {
             $table->unsignedBigInteger('label_id')->nullable();
-            $table->foreign('label_id')->references('id')->on('labels')->onDelete('cascade');
+            $table->foreign('label_id')->references('id')->on('labels')->onDelete('set null');
         });
 
     }
