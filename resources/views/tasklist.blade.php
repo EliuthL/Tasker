@@ -21,11 +21,17 @@
                     <td>{{ $task->label->name ?? 'null' }} </td>
                     <td>{{ $task->status }}</td>
                     <td>
-                        <form action="{{ route('task.update',$task, ['id' => 'id']) }}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <button type="summit" class="btn btn-success">Completar</button>
-                        </form>
+                        @if ($task->status == 'Pendiente')
+                            <form action="{{ route('task.update',$task, ['id' => 'id']) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <button type="summit" class="btn btn-success">Completar</button>
+                            </form>
+                            
+                        @else
+                            <button type="button" class="btn btn-success" disabled>Completar</button>
+                        @endif
+                        
                     </td>
                     <td>
                         <form id="deleteTask" action="{{ route('task.destroy',$task, ['id' => 'id']) }}" method="POST">
@@ -45,7 +51,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <p class="text-center">¿Estás seguro de que deseas eliminar la tarea?</p>
-            <button class="my-btn-primary" onclick="submitForm('deleteTask')">Sí</button>
+            <button class="my-btn-primary" onclick="submit(this,'deleteTask')">Sí</button>
             <button class="top-margin-10px danger-btn" onclick="closeModal()">Cancelar</button>
         </div>
     </div>

@@ -11,6 +11,7 @@ class TaskController extends Controller
     public function store(Request $request){
         $rules = [
             'nombretarea' => 'required|string|min:3|max:50|unique:labels,name',
+            'label_id' => 'required'
         ];
         
         $messages = [
@@ -19,6 +20,7 @@ class TaskController extends Controller
             'nombre.unique' => 'La etiqueta ya existe',
             'nombre.min' => 'El campo nombre debe tener al menos 3 caracteres',
             'nombre.max' => 'El campo nombre debe tener como máximo 50 caracteres',
+            'label_id.required' => 'Seleciona una etiqueta'
         ];
         
         $request->validate($rules, $messages);
@@ -57,7 +59,7 @@ class TaskController extends Controller
     public function completeTask($id){
         $task = Task::find($id);
         $task->update([
-            'status' => 'completed'
+            'status' => 'Completada'
         ]);
 
         return redirect()->route('home') -> with('Success', 'Tarea completada con éxito');

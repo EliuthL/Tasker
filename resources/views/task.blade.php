@@ -15,7 +15,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" id="btn-close" aria-label="Close"></button>
     </div>
     @endif
-    <form action="{{ route('task.store') }}" method="POST">
+    <form id="newTask" action="{{ route('task.store') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nombret">Tarea</label>
@@ -28,10 +28,8 @@
             <option value="{{$label->id}}">{{ $label->name }}</option>
             @endforeach
         </select>
-
-        <button type="submit" class="btn btn-primary top-margin-10px" onclick="disablebutton(this)">Agregar</button>
     </form>
-
+    <button type="button" class="btn btn-primary top-margin-10px" onclick="submit(this, 'newTask')">Agregar</button>
 
 </div>
 @endsection

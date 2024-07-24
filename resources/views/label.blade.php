@@ -5,7 +5,7 @@
 <div class="container">
 
 
-    <form action="{{ route('label.store') }}" method="POST">
+    <form id="newLabel" action="{{ route('label.store') }}" method="POST">
         @csrf
 
         @if (session('Success'))
@@ -26,10 +26,9 @@
             <label for="nombre">Estiqueta</label>
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="your label name">
         </div>
-
-        <button type="submit" class="btn btn-primary top-margin-10px" onclick="disablebutton(this)">Agregar</button>
-
     </form>
+
+    <button type="button" class="btn btn-primary top-margin-10px" onclick="submit(this,'newLabel')">Agregar</button>
 
     <table class="table top-margin-10px">
         <thead>
@@ -59,8 +58,8 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <p class="text-center">¿Estás seguro de que deseas eliminar la tarea?</p>
-        <button class="my-btn-primary" onclick="submitForm('deleteLabel')">Sí</button>
+        <p class="text-center">¿Estás seguro de que deseas eliminar la etiqueta?</p>
+        <button class="my-btn-primary" onclick="submit(this,'deleteLabel')">Sí</button>
         <button class="top-margin-10px danger-btn" onclick="closeModal()">Cancelar</button>
     </div>
 </div>
