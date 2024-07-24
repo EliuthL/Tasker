@@ -18,7 +18,7 @@
                 @foreach ($tasks as $task)
                 <tr>
                     <td>{{ $task->name }}</td>
-                    <td>{{ $task->label->name ?? 'null' }} </td>
+                    <td>{{ $task->label->name ?? 'Sin etiqueta' }} </td>
                     <td>{{ $task->status }}</td>
                     <td>
                         @if ($task->status == 'Pendiente')

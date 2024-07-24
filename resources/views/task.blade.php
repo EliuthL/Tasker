@@ -19,7 +19,7 @@
         @csrf
         <div class="form-group">
             <label for="nombret">Tarea</label>
-            <input type="text" class="form-control" id="nombret" name="nombretarea" placeholder="your task name">
+            <input type="text" class="form-control" id="nombret" name="nombretarea" placeholder="Nombre de tu tarea">
         </div>
 
 

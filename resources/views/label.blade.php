@@ -24,7 +24,7 @@
 
         <div class="form-group">
             <label for="nombre">Estiqueta</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="your label name">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre de tu etiqueta">
         </div>
     </form>
 
